@@ -1,11 +1,34 @@
+const path = require('path');
+const express = require('express');
+const hbs = require('hbs');
 
-function add(a,b, callback) {
-  setTimeout(() => {
-    callback(a + b);
-  }, 2000);
-}
+const PORT = 3000;
+const app = express();
 
-add(10, 3, (data) => {
- if (data % 2 === 0)  console.log(`${data} es par!`);
- else { console.log(`${data} es impar!`)}
+const publicPath = path.join(__dirname, '..', 'public'); 
+const viewsPath = path.join(__dirname, '..', 'templates', 'views');
+const partialsPath = path.join(__dirname, '..', 'templates', 'partials');
+
+app.set('view engine', 'hbs');
+app.set('views', viewsPath);
+hbs.registerPartials(partialsPath);
+
+app.use('/public', express.static(publicPath));
+
+app.get('', (req, res) => {
+  res.render('index.hbs', {
+    title: 'weather app',
+    urlPath: req.originalUrl,
+    creator: 'Andres Future App Dev'
+  });
+});
+
+app.get('*', (req, res) => {
+  res.render('404-error.hbs', {
+    errorMessage: 'we can\'t find the page you are looking for'
+  });
+});
+
+app.listen(PORT, () => {
+  console.log(`server running at http://localhost:${PORT}`);
 });
