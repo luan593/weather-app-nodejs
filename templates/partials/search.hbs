@@ -1,0 +1,40 @@
+<style>
+  form {
+    width: 100%;
+    display: flex;
+    position: relative;
+  }
+
+  input[type=text] {
+    font-family: inherit;
+    width: 100%;
+    border-width: 2px;
+    border-style: solid;
+    border-color: rgb(32, 32, 32);
+    border-right: none;
+    padding: 12px;
+    height: 32px;
+    outline: none;
+  }
+
+  input[type=text]:focus {
+    color: rgb(32, 32, 32);
+  }
+
+  button[type=submit] {
+    width: 40px;
+    height: 32px;
+    background-color: rgb(32, 32, 32);
+    border-width: 1px;
+    border-style: solid;
+    border-color: rgb(32, 32, 32);
+    color: #fff;
+    cursor: pointer;
+  }
+</style>
+<form action="" role="search">
+  <input type="text" placeholder="what city are you looking for?">
+  <button type="submit">
+    <i class="fa-solid fa-magnifying-glass"></i>
+  </button>
+</form>

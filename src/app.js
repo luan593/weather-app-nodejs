@@ -23,9 +23,14 @@ app.get('', (req, res) => {
   });
 });
 
+app.get('/prueba', (req, res) => {
+  res.render('prueba.hbs');
+});
+
 app.get('*', (req, res) => {
   res.render('404-error.hbs', {
-    errorMessage: 'we can\'t find the page you are looking for'
+    errorMessage: 'we can\'t find the page you are looking for',
+    creator: 'Andres Backend Developer in the making'
   });
 });
 

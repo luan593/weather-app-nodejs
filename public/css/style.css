@@ -6,15 +6,26 @@
 }
 
 body {
-  height: 100vh;
+  min-height: 100vh;
   display: flex;
   justify-content: center;
   align-items: center;
-  flex-direction: column;
+}
+
+h1 {
+  margin-top: 0px;
+  margin-bottom: 44px;
+  font-weight:300;
+  font-size: 72px;
 }
 
 footer {
   position: absolute;
-  right: 10px;
-  bottom: 10px;
+  right: 60px;
+  bottom: 40px;
+  font-size: small;
+}
+
+footer p span {
+  text-decoration: underline;
 }
